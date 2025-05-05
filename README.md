@@ -1,0 +1,7 @@
+# Assignemet 2 MTSS
+
+### Gruppo
+- Luca Granziero 2075512
+- Armando Moda Scarati 2082864
+
+
