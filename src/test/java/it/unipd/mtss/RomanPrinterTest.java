@@ -36,5 +36,10 @@ public class RomanPrinterTest {
         assertEquals("            \n  / |  / |  / |\n | |      | |      | |     \n | |      | |      | |     \n | |  | |  | | \n  \|  \|  \|\n", RomanPrinter.print(300));
         assertEquals("        \n  / __| |   \ \n | |      | |  | |\n | |      | |  | |\n | |__  | || |\n  \| |/ \n", RomanPrinter.print(400));
         assertEquals("  __  \n |   \ \n | |  | |\n | |  | |\n | || |\n |__/ \n", RomanPrinter.print(500));
+		assertEquals("  _____     _____ \n |  __ \\   / ____|\n | |  | | | |     \n | |  | | | |     \n | |__| | | |____ \n |_____/   \\_____|\n", RomanPrinter.print(600));
+        assertEquals("  _____     _____    _____ \n |  __ \\   / ____|  / ____|\n | |  | | | |      | |     \n | |  | | | |      | |     \n | |__| | | |____  | |____ \n |_____/   \\_____|  \\_____|\n", RomanPrinter.print(700));
+        assertEquals("  _____     _____    _____    _____ \n |  __ \\   / ____|  / ____|  / ____|\n | |  | | | |      | |      | |     \n | |  | | | |      | |      | |     \n | |__| | | |____  | |____  | |____ \n |_____/   \\_____|  \\_____|  \\_____|\n", RomanPrinter.print(800));
+        assertEquals("   _____   __  __ \n  / ____| |  \\/  |\n | |      | \\  / |\n | |      | |\\/| |\n | |____  | |  | |\n  \\_____| |_|  |_|\n", RomanPrinter.print(900));
+        assertEquals("  __  __ \n |  \\/  |\n | \\  / |\n | |\\/| |\n | |  | |\n |_|  |_|\n", RomanPrinter.print(1000));
 	}
 }
