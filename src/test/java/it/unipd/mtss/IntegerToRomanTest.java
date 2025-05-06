@@ -17,7 +17,7 @@ public class IntegerToRomanTest {
 		assertEquals("IV", IntegerToRoman.convert(4));
         assertEquals("V", IntegerToRoman.convert(5));
         assertEquals("VI", IntegerToRoman.convert(6));
-		 assertEquals("VII", IntegerToRoman.convert(7));
+		assertEquals("VII", IntegerToRoman.convert(7));
         assertEquals("VIII", IntegerToRoman.convert(8));
         assertEquals("IX", IntegerToRoman.convert(9));
         assertEquals("X", IntegerToRoman.convert(10));
@@ -27,5 +27,10 @@ public class IntegerToRomanTest {
 		assertEquals("XXX", IntegerToRoman.convert(30));
         assertEquals("XL", IntegerToRoman.convert(40));
         assertEquals("L", IntegerToRoman.convert(50));
-    }
+		assertEquals("LX", IntegerToRoman.convert(60));
+        assertEquals("LXX", IntegerToRoman.convert(70));
+        assertEquals("LXXX", IntegerToRoman.convert(80));
+        assertEquals("XC", IntegerToRoman.convert(90));
+        assertEquals("C", IntegerToRoman.convert(100));
+	}
 }
