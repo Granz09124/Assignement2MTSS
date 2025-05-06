@@ -27,5 +27,10 @@ public class RomanPrinterTest {
 		assertEquals("            \n \ \ / / \ \ / / \ \ / /\n  \ V /   \ V /   \ V / \n   > <     > <     > <  \n  / . \   / . \   / . \ \n // \\ // \\ // \\\n", RomanPrinter.print(30));
         assertEquals("            \n \ \ / / | |     \n  \ V /  | |     \n   > <   | |     \n  / . \  | |__ \n // \\ |__|\n", RomanPrinter.print(40));
         assertEquals("        \n | |     \n | |     \n | |     \n | | \n |__|\n", RomanPrinter.print(50));
+		assertEquals("  _       __   __\n | |      \\ \\ / /\n | |       \\ V / \n | |        > <  \n | |____   / . \\ \n |______| /_/ \\_\\\n", RomanPrinter.print(60));
+        assertEquals("  _       __   __ __   __\n | |      \\ \\ / / \\ \\ / /\n | |       \\ V /   \\ V / \n | |        > <     > <  \n | |____   / . \\   / . \\ \n |______| /_/ \\_\\ /_/ \\_\\\n", RomanPrinter.print(70));
+        assertEquals("  _       __   __ __   __ __   __\n | |      \\ \\ / / \\ \\ / / \\ \\ / /\n | |       \\ V /   \\ V /   \\ V / \n | |        > <     > <     > <  \n | |____   / . \\   / . \\   / . \\ \n |______| /_/ \\_\\ /_/ \\_\\ /_/ \\_\\\n", RomanPrinter.print(80));
+        assertEquals(" __   __   _____ \n \\ \\ / /  / ____|\n  \\ V /  | |     \n   > <   | |     \n  / . \\  | |____ \n /_/ \\_\\  \\_____|\n", RomanPrinter.print(90));
+        assertEquals("   _____ \n  / ____|\n | |     \n | |     \n | |____ \n  \\_____|\n", RomanPrinter.print(100));
 	}
 }
