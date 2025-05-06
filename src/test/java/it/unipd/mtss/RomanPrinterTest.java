@@ -17,5 +17,9 @@ public class RomanPrinterTest {
 		assertEquals("  _____  __      __\n |_   _| \\ \\    / /\n   | |    \\ \\  / / \n   | |     \\ \\/ /  \n  _| |_     \\  /   \n |_____|     \\/    \n", RomanPrinter.print(4));
         assertEquals(" __      __\n \\ \\    / /\n  \\ \\  / / \n   \\ \\/ /  \n    \\  /   \n     \\/    \n", RomanPrinter.print(5));
         assertEquals(" __      __  _____ \n \\ \\    / / |_   _|\n  \\ \\  / /    | |  \n   \\ \\/ /     | |  \n    \\  /     _| |_ \n     \\/     |_____|\n", RomanPrinter.print(6));
+		assertEquals("             \n \ \    / / |   | |   |\n  \ \  / /    | |     | |  \n   \ \/ /     | |     | |  \n    \  /     | |   | | \n     \/     || ||\n", RomanPrinter.print(7));
+        assertEquals("               __ \n \ \    / / |   | |   | |   |\n  \ \  / /    | |     | |     | |  \n   \ \/ /     | |     | |     | |  \n    \  /     | |   | |   | | \n     \/     |__| || ||\n", RomanPrinter.print(8));
+        assertEquals("  __     __\n |   | \ \ / /\n   | |    \ V / \n   | |     > <  \n  | |   / . \ \n |__| // \\\n", RomanPrinter.print(9));
+        assertEquals("    \n \ \ / /\n  \ V / \n   > <  \n  / . \ \n // \\\n", RomanPrinter.print(10));
 	}
 }
