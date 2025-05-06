@@ -24,5 +24,8 @@ public class RomanPrinterTest {
 		assertEquals(" __   __ __      __\n \\ \\ / / \\ \\    / /\n  \\ V /   \\ \\  / / \n   > <     \\ \\/ /  \n  / . \\     \\  /   \n /_/ \\_\\     \\/    \n", RomanPrinter.print(15));
         assertEquals(" __   __  _____  __   __\n \\ \\ / / |_   _| \\ \\ / /\n  \\ V /    | |    \\ V / \n   > <     | |     > <  \n  / . \\   _| |_   / . \\ \n /_/ \\_\\ |_____| /_/ \\_\\\n", RomanPrinter.print(19));
         assertEquals(" __   __ __   __\n \\ \\ / / \\ \\ / /\n  \\ V /   \\ V / \n   > <     > <  \n  / . \\   / . \\ \n /_/ \\_\\ /_/ \\_\\\n", RomanPrinter.print(20));
+		assertEquals("            \n \ \ / / \ \ / / \ \ / /\n  \ V /   \ V /   \ V / \n   > <     > <     > <  \n  / . \   / . \   / . \ \n // \\ // \\ // \\\n", RomanPrinter.print(30));
+        assertEquals("            \n \ \ / / | |     \n  \ V /  | |     \n   > <   | |     \n  / . \  | |__ \n // \\ |__|\n", RomanPrinter.print(40));
+        assertEquals("        \n | |     \n | |     \n | |     \n | | \n |__|\n", RomanPrinter.print(50));
 	}
 }
