@@ -123,26 +123,26 @@
         </execution>
         <execution>
             <id>check-coverage</id>
-            <phase>test</phase>
+            <phase>verify</phase>  <!-- Changed from test to verify -->
             <goals>
                 <goal>check</goal>
             </goals>
             <configuration>
                 <rules>
-                    <rule implementation="org.jacoco.maven.RuleConfiguration">
+                    <rule>
                         <element>BUNDLE</element>
                         <limits>
-                            <limit implementation="org.jacoco.report.check.Limit">
+                            <limit>
                                 <counter>INSTRUCTION</counter>
                                 <value>COVEREDRATIO</value>
                                 <minimum>0.85</minimum>
                             </limit>
-                            <limit implementation="org.jacoco.report.check.Limit">
+                            <limit>
                                 <counter>BRANCH</counter>
                                 <value>COVEREDRATIO</value>
                                 <minimum>0.75</minimum>
                             </limit>
-                            <limit implementation="org.jacoco.report.check.Limit">
+                            <limit>
                                 <counter>LINE</counter>
                                 <value>COVEREDRATIO</value>
                                 <minimum>0.85</minimum>
