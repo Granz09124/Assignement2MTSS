@@ -18,3 +18,5 @@
         <module name="NeedBraces"/>
     </module>
 </module>
+    <module name="LineLength"/>
+</module>
