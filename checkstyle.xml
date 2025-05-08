@@ -4,14 +4,15 @@
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
+    <module name="FileLength"/>
+    <module name="FileTabCharacter"/>
+    
     <module name="TreeWalker">
         <module name="BooleanExpressionComplexity"/>
         <module name="CyclomaticComplexity"/>
-        <module name="FileLength"/>
         <module name="LineLength"/>
         <module name="MethodLength"/>
         <module name="EmptyCatchBlock"/>
-        <module name="FileTabCharacter"/>
         <module name="AvoidStarImport"/>
         <module name="IllegalImport"/>
         <module name="NeedBraces"/>
