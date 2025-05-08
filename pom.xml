@@ -104,55 +104,56 @@
       </plugin>
 
       <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.10</version>
-        <executions>
-          <execution>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.10</version>
+    <executions>
+        <execution>
             <id>default-prepare-agent</id>
             <goals>
-              <goal>prepare-agent</goal>
+                <goal>prepare-agent</goal>
             </goals>
-          </execution>
-          <execution>
+        </execution>
+        <execution>
             <id>default-report</id>
             <phase>test</phase>
             <goals>
-              <goal>report</goal>
+                <goal>report</goal>
             </goals>
-          </execution>
-          <execution>
-            <id>default-check</id>
+        </execution>
+        <execution>
+            <id>check-coverage</id>
+            <phase>test</phase>
             <goals>
-              <goal>check</goal>
+                <goal>check</goal>
             </goals>
             <configuration>
-              <rules>
-                <rule>
-                  <element>BUNDLE</element>
-                  <limits>
-                    <limit>
-                      <counter>INSTRUCTION</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>0.85</minimum>
-                    </limit>
-                    <limit>
-                      <counter>BRANCH</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>0.75</minimum>
-                    </limit>
-                    <limit>
-                      <counter>LINE</counter>
-                      <value>COVEREDRATIO</value>
-                      <minimum>0.85</minimum>
-                    </limit>
-                  </limits>
-                </rule>
-              </rules>
+                <rules>
+                    <rule implementation="org.jacoco.maven.RuleConfiguration">
+                        <element>BUNDLE</element>
+                        <limits>
+                            <limit implementation="org.jacoco.report.check.Limit">
+                                <counter>INSTRUCTION</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>0.85</minimum>
+                            </limit>
+                            <limit implementation="org.jacoco.report.check.Limit">
+                                <counter>BRANCH</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>0.75</minimum>
+                            </limit>
+                            <limit implementation="org.jacoco.report.check.Limit">
+                                <counter>LINE</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>0.85</minimum>
+                            </limit>
+                        </limits>
+                    </rule>
+                </rules>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
+        </execution>
+    </executions>
+</plugin>
 
       <!-- Coveralls Plugin -->
       <plugin>
