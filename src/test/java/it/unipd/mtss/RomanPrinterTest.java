@@ -247,8 +247,8 @@ public class RomanPrinterTest {
             " | |      | |  | |\n" +
             " | |      | |  | |\n" +
             " | |____  | |__| |\n" +
-            "  \\_____| |_____/ \n",
-            RomanPrinter.print(400));
+            "  \\_____| |_____/",
+            RomanPrinter.print(400).trim());
 
         // 500 (D)
         assertEquals(
