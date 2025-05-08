@@ -1,11 +1,3 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Java CI with Maven
 
 on: [push, pull_request]
@@ -24,31 +16,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - name: Validate pom.xml
-      run: mvn help:effective-pom
-      
-    - name: Build with Maven
-      run: mvn -B clean compile
-      
-    - name: Run unit tests with coverage
-      run: mvn -B test jacoco:report
-      
-    - name: Verify code style
-      run: mvn -B checkstyle:check
-      
-    - name: Package application
-      run: mvn -B package
-      
-    - name: Verify coverage requirements
-      run: mvn -B jacoco:check
+    - name: Build and verify
+      run: mvn -B clean verify
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       
     - name: Upload JaCoCo coverage report
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: jacoco-report
         path: target/site/jacoco/
-        
-    - name: Report to Coveralls
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      run: mvn -B org.eluder.coveralls:coveralls-maven-plugin:report
