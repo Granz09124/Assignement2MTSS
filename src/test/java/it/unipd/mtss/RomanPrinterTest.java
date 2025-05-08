@@ -242,13 +242,13 @@ public class RomanPrinterTest {
 
         // 400 (CD)
         assertEquals(
-            "_____   _____ \n" +  
-            "  / ____| |  __ \\\n" +
-            " | |      | |  | |\n" +
+            "   _____   _____ \n" +    
+            "  / ____| |  __ \\\n" +   
+            " | |      | |  | |\n" +  
             " | |      | |  | |\n" +
             " | |____  | |__| |\n" +
-            "  \\_____| |_____/", 
-            RomanPrinter.print(400)); 
+            "  \\_____| |_____/ \n",   
+            RomanPrinter.print(400));
 
         // 500 (D)
         assertEquals(
