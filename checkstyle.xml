@@ -4,19 +4,19 @@
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
+    <!-- File-level checks -->
     <module name="FileLength"/>
     <module name="FileTabCharacter"/>
+    <module name="LineLength"/>
     
+    <!-- TreeWalker for code-level checks -->
     <module name="TreeWalker">
         <module name="BooleanExpressionComplexity"/>
         <module name="CyclomaticComplexity"/>
-        <module name="LineLength"/>
         <module name="MethodLength"/>
         <module name="EmptyCatchBlock"/>
         <module name="AvoidStarImport"/>
         <module name="IllegalImport"/>
         <module name="NeedBraces"/>
     </module>
-</module>
-    <module name="LineLength"/>
 </module>
