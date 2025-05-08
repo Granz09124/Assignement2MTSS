@@ -8,28 +8,47 @@
 
 name: Java CI with Maven
 
-on:
-  push:
-    branches: [ "develop" ]
-  pull_request:
-    branches: [ "develop" ]
+on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Set up JDK 17
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    
+    - name: Validate pom.xml
+      run: mvn help:effective-pom
+      
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+      run: mvn -B clean compile
+      
+    - name: Run unit tests with coverage
+      run: mvn -B test jacoco:report
+      
+    - name: Verify code style
+      run: mvn -B checkstyle:check
+      
+    - name: Package application
+      run: mvn -B package
+      
+    - name: Verify coverage requirements
+      run: mvn -B jacoco:check
+      
+    - name: Upload JaCoCo coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: jacoco-report
+        path: target/site/jacoco/
+        
+    - name: Report to Coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      run: mvn -B org.eluder.coveralls:coveralls-maven-plugin:report
