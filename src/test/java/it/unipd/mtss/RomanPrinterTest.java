@@ -5,17 +5,71 @@
 package it.unipd.mtss;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RomanPrinterTest {
     @Test
     public void testPrint() {
-        assertEquals("  __ \n |   |\n   | |  \n   | |  \n  | | \n |__|\n", RomanPrinter.print(1));
-        assertEquals("      \n |   | |   |\n   | |     | |  \n   | |     | |  \n  | |   | | \n || ||\n", RomanPrinter.print(2));
-        assertEquals("        __ \n |   | |   | |   |\n   | |     | |     | |  \n   | |     | |     | |  \n  | |   | |   | | \n |__| || ||\n", RomanPrinter.print(3));
-		assertEquals("  _____  __      __\n |_   _| \\ \\    / /\n   | |    \\ \\  / / \n   | |     \\ \\/ /  \n  _| |_     \\  /   \n |_____|     \\/    \n", RomanPrinter.print(4));
-        assertEquals(" __      __\n \\ \\    / /\n  \\ \\  / / \n   \\ \\/ /  \n    \\  /   \n     \\/    \n", RomanPrinter.print(5));
-        assertEquals(" __      __  _____ \n \\ \\    / / |_   _|\n  \\ \\  / /    | |  \n   \\ \\/ /     | |  \n    \\  /     _| |_ \n     \\/     |_____|\n", RomanPrinter.print(6));
-	}
+        // 1 (I)
+        assertEquals(
+            "  _____ \n" +
+            " |_   _|\n" +
+            "   | |  \n" +
+            "   | |  \n" +
+            "  _| |_ \n" +
+            " |_____|\n",
+            RomanPrinter.print(1));
+
+        // 2 (II)
+        assertEquals(
+            "  _____   _____ \n" +
+            " |_   _| |_   _|\n" +
+            "   | |     | |  \n" +
+            "   | |     | |  \n" +
+            "  _| |_   _| |_ \n" +
+            " |_____| |_____|\n",
+            RomanPrinter.print(2));
+
+        // 3 (III)
+        assertEquals(
+            "  _____   _____   _____ \n" +
+            " |_   _| |_   _| |_   _|\n" +
+            "   | |     | |     | |  \n" +
+            "   | |     | |     | |  \n" +
+            "  _| |_   _| |_   _| |_ \n" +
+            " |_____| |_____| |_____|\n",
+            RomanPrinter.print(3));
+
+        // 4 (IV)
+        assertEquals(
+            "  _____  __      __\n" +
+            " |_   _| \\ \\    / /\n" +
+            "   | |    \\ \\  / / \n" +
+            "   | |     \\ \\/ /  \n" +
+            "  _| |_     \\  /   \n" +
+            " |_____|     \\/    \n",
+            RomanPrinter.print(4));
+
+        // 5 (V)
+        assertEquals(
+            " __      __\n" +
+            " \\ \\    / /\n" +
+            "  \\ \\  / / \n" +
+            "   \\ \\/ /  \n" +
+            "    \\  /   \n" +
+            "     \\/    \n",
+            RomanPrinter.print(5));
+
+        // 6 (VI)
+        assertEquals(
+            " __      __  _____ \n" +
+            " \\ \\    / / |_   _|\n" +
+            "  \\ \\  / /    | |  \n" +
+            "   \\ \\/ /     | |  \n" +
+            "    \\  /     _| |_ \n" +
+            "     \\/     |_____|\n",
+            RomanPrinter.print(6));
+
+       
+
 }
