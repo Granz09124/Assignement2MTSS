@@ -1,3 +1,4 @@
+
 name: Java CI with Maven
 
 on: [push, pull_request]
@@ -16,18 +17,14 @@ jobs:
         distribution: 'temurin'
         cache: maven
     
-    - name: Run tests with coverage
-      run: mvn -B clean test jacoco:report
-
-    - name: Upload to Coveralls
+    - name: Build and verify
+      run: mvn -B clean verify
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      run: mvn -B coveralls:report
-
-    - name: Upload JaCoCo report
+      
+    - name: Upload JaCoCo coverage report
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: jacoco-report
         path: target/site/jacoco/
-<!-- Trigger coverage update -->
