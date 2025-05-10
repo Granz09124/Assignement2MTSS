@@ -104,67 +104,71 @@
       </plugin>
 
       <plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.10</version>
-    <executions>
-        <execution>
-            <id>default-prepare-agent</id>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>default-report</id>
-            <phase>test</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>check-coverage</id>
-            <phase>verify</phase>  <!-- Changed from test to verify -->
-            <goals>
-                <goal>check</goal>
-            </goals>
-            <configuration>
-                <rules>
-                    <rule>
-                        <element>BUNDLE</element>
-                        <limits>
-                            <limit>
-                                <counter>INSTRUCTION</counter>
-                                <value>COVEREDRATIO</value>
-                                <minimum>0.85</minimum>
-                            </limit>
-                            <limit>
-                                <counter>BRANCH</counter>
-                                <value>COVEREDRATIO</value>
-                                <minimum>0.75</minimum>
-                            </limit>
-                            <limit>
-                                <counter>LINE</counter>
-                                <value>COVEREDRATIO</value>
-                                <minimum>0.85</minimum>
-                            </limit>
-                        </limits>
-                    </rule>
-                </rules>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.10</version>
+        <executions>
+            <execution>
+                <id>default-prepare-agent</id>
+                <goals>
+                    <goal>prepare-agent</goal>
+                </goals>
+            </execution>
+            <execution>
+                <id>default-report</id>
+                <phase>test</phase>
+                <goals>
+                    <goal>report</goal>
+                </goals>
+            </execution>
+            <execution>
+                <id>check-coverage</id>
+                <phase>verify</phase>  <!-- Changed from test to verify -->
+                <goals>
+                    <goal>check</goal>
+                </goals>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <element>BUNDLE</element>
+                            <limits>
+                                <limit>
+                                    <counter>INSTRUCTION</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>0.85</minimum>
+                                </limit>
+                                <limit>
+                                    <counter>BRANCH</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>0.75</minimum>
+                                </limit>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>0.85</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
+            </execution>
+        </executions>
+      </plugin>
 
       <!-- Coveralls Plugin -->
       <plugin>
         <groupId>org.eluder.coveralls</groupId>
         <artifactId>coveralls-maven-plugin</artifactId>
         <version>4.3.0</version>
+        <dependencies>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+        </dependencies>
         <configuration>
-          <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
-          <jacocoReports>
-            <jacocoReport>target/site/jacoco/jacoco.xml</jacocoReport>
-          </jacocoReports>
+            <repoToken>${env.COVERALLS_REPO_TOKEN}</repoToken>
         </configuration>
       </plugin>
     </plugins>
