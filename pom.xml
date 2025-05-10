@@ -154,7 +154,7 @@
         </execution>
     </executions>
 </plugin>
-
+<!-- Trigger coverage update -->
       <!-- Coveralls Plugin -->
       <plugin>
         <groupId>org.eluder.coveralls</groupId>
